@@ -9,7 +9,7 @@ np.set_printoptions(threshold=np.inf)
 MAX_JOINT_ANGLES_LEN = 325
 NUM_JOINT_ANGLE_PAIRS = 12
 classes = ['CORRECT', 'WRONG']
-model = tf.keras.models.load_model('./app/gruModel') # model built with GRU & Masking
+model = tf.keras.models.load_model('gruModel') # model built with GRU & Masking
 
 
 def logError(error, errorsList): # * fxn that logs the errors to a text file, for debugging purposes
