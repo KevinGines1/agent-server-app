@@ -10,7 +10,7 @@ from keras.utils import np_utils
 np.set_printoptions(threshold=np.inf)
 
 # cnn_model = tf.keras.models.load_model('../static/cnnModel')
-cnn_model = tf.keras.models.load_model('cnnModel_3class')
+cnn_model = tf.keras.models.load_model('./app/cnnModel_3class')
 
 # ? define hyperparameters
 IMG_SIZE = 224
