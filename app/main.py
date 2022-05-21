@@ -1,11 +1,25 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import json
-import uvicorn
-from app.utilsRNN import loadVideoPoints, predict
-from app.utilsCNN import sequence_prediction
+from uvicorn import run
+from utilsRNN import loadVideoPoints, predict
+from utilsCNN import sequence_prediction
+import os
 
 app = FastAPI()
+
+origins = ['*']
+methods = ['*']
+headers = ['*']
+
+app.add_middleware(
+    CORSMiddleware, 
+    allow_origins = origins,
+    allow_credentials = True,
+    allow_methods = methods,
+    allow_headers = headers    
+)
 
 class Data(BaseModel):
   videoUrl: str
@@ -46,4 +60,5 @@ def classifyCNN(data: Data):
   return prediction
 
 if __name__ == '__main__':
-  uvicorn.run(app, port=8080, host='0.0.0.0')
+  port = int(os.environ.get('PORT', 5000))
+  run(app, port=port, host='0.0.0.0', timeout_keep_alive=300)
