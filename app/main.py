@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import json
 import uvicorn
-from utilsRNN import loadVideoPoints, predict
-from utilsCNN import sequence_prediction
+from app.utilsRNN import loadVideoPoints, predict
+from app.utilsCNN import sequence_prediction
 
 app = FastAPI()
 
