@@ -55,7 +55,7 @@ def getAngleBetweenTwoVectors(vector1, vector2): # * fxn that gets the angle bet
 def loadVideoPoints(vidSrc, frameCount): # * fxn that loads a video file and extracts the joint_pair_angles in each frame
 
   # * initialize needed values
-  net = cv.dnn.readNetFromTensorflow('graph_opt.pb') # load the weights for human pose estimation
+  net = cv.dnn.readNetFromTensorflow('./app/graph_opt.pb') # load the weights for human pose estimation
 
   inWidth = 368
   inHeight = 368
